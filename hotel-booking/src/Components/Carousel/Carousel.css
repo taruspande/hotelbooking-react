@@ -1,0 +1,10 @@
+.container {
+    text-align: center;
+    /* background-color: #c68484; */
+    height: 250px;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 20px;
+    justify-content: space-evenly;
+    background: transparent;
+  }
