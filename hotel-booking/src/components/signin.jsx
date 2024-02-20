@@ -67,7 +67,7 @@ export const App1 = () => (
         <LoginComponent
             mode={mode}
             onSubmit={
-                function() {``
+                function() {
                     console.log('submit');
                 }
             }
