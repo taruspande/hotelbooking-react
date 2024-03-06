@@ -1,10 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .container {
-    text-align: center;
-    /* background-color: #c68484; */
-    height: 250px;
-    width: 90%;
-    margin-left: 5%;
-    margin-top: 20px;
-    justify-content: space-evenly;
-    background: transparent;
-  }
+  text-align: center;
+  /* background-color: #c68484; */
+  height: 250px;
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 20px;
+  justify-content: space-evenly;
+  background: transparent;
+}
+.slick-arrow.slick-prev,
+.slick-arrow.slick-next {
+  width: 10px;
+  height: 104px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  padding-left: 10px;
+}
+
+.slick-prev::before,
+.slick-next::before {
+  display: none;
+}

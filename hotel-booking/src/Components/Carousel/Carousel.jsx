@@ -1,32 +1,42 @@
-import React from 'react'
-import './Carousel.css'
-import Card from "C:/Users/Ronak/Desktop/Coding/HotelBook/hotelbooking-react/hotel-booking/src/Components//Cards/HotelCard.jsx"
-// import "C:/Users/Ronak/Desktop/Coding/HotelBook/hotelbooking-react/hotel-booking/slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
+import React from "react";
+import "./Carousel.css";
+import Card from "C:/Users/Ronak/Desktop/Coding/HotelBook/hotelbooking-react/hotel-booking/src/Components//Cards/HotelCard.jsx";
 import Slider from "react-slick";
-
+import PropTypes from "prop-types";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
+  // console.log(props);
+  const { className, onClick } = props;
   return (
-    <div
-      className={className}
-      style={{ ...style, display: "block", background: "red" }}
-      onClick={onClick}
-    />
+    <div className={className} onClick={onClick}>
+      <ArrowForwardIosIcon style={{ color: "#5F230F", fontSize: "50px" }} />
+    </div>
   );
 }
 
+SampleNextArrow.propTypes = {
+  className: PropTypes.string,
+  style: PropTypes.object,
+  onClick: PropTypes.func,
+};
+
 function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
+  const { className, onClick } = props;
   return (
-    <div
-      className={className}
-      style={{ ...style, display: "block", background: "black" }}
-      onClick={onClick}
-    />
+    <div className={className} onClick={onClick}>
+      <ArrowBackIosIcon style={{ color: "#5F230F", fontSize: "50px" }} />
+    </div>
   );
 }
+
+SamplePrevArrow.propTypes = {
+  className: PropTypes.string,
+  style: PropTypes.object,
+  onClick: PropTypes.func,
+};
+
 const Carousel = () => {
   const settings = {
     infinite: true,
@@ -54,8 +64,7 @@ const Carousel = () => {
         <Card />
       </Slider>
     </div>
-  )
-}
+  );
+};
 
-export default Carousel
-
+export default Carousel;

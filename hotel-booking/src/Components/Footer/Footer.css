@@ -1,0 +1,102 @@
+footer {
+    background-color: #5f230f;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    height: 250px;
+    margin-top: 10px;
+  }
+  
+  footer .logo {
+    align-items: center;
+    width: 32.5rem;
+    justify-content: center;
+    margin-left: 7rem;
+  }
+  
+  footer .logo h1 {
+    font-size: 3.5em;
+    margin-top: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  footer .logo h3 {
+    margin-top: 20px;
+    font-size: 2em;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  footer .social_media {
+    display: flex;
+    width: 150px;
+    margin-top: 20px;
+  }
+  
+  footer .social_media a {
+    color: #fff;
+    float: left;
+    text-decoration: none;
+    font-size: 40px;
+    text-align: center;
+    padding-right: 40px;
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    z-index: 1;
+  }
+  
+  footer .countries {
+    flex: 1;
+    width: 22.5rem;
+    margin-top: 10px;
+  }
+  
+  footer .countries h2 {
+    margin-bottom: 15px;
+    font-size: 1.8em;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  footer .countries p {
+    font-size: 1.35em;
+    padding-top: 6.25px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  footer .about {
+    flex: 1;
+    width: 20rem;
+    margin-top: 10px;
+  }
+  
+  footer .about h2 {
+    margin-bottom: 15px;
+    font-size: 1.8em;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  footer .about p {
+    font-size: 1.35em;
+    padding-top: 6.25px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  footer .contact {
+    flex: 1;
+    width: 25rem;
+    margin-top: 10px;
+  }
+  
+  footer .contact h2 {
+    margin-bottom: 15px;
+    font-size: 1.8em;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  footer .contact p {
+    font-size: 1.35em;
+    padding-top: 6.25px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
