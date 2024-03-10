@@ -1,6 +1,6 @@
 import React from "react";
 import "./Carousel.css";
-import Card from "C:/Users/Ronak/Desktop/Coding/HotelBook/hotelbooking-react/hotel-booking/src/Components//Cards/HotelCard.jsx";
+import Card from "../Cards/HotelCard.jsx";
 import Slider from "react-slick";
 import PropTypes from "prop-types";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
