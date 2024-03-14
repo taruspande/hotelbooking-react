@@ -1,13 +1,14 @@
 import React from "react";
 import "./App.css";
-import Carousel from "./Components/Carousel/Carousel.jsx";
-import { Header } from "./Components/Header";
-import Footer from "./Components/Footer/Footer.jsx";
+// import Carousel from "./Components/Carousel/Carousel.jsx";
+// import { Header } from "./Components/Header";
+// import Footer from "./Components/Footer/Footer.jsx";
+import SearchPage from "./Pages/SearchPage/SearchPage.jsx"
 
 function App() {
   return (
     <div>
-      <Header />
+      {/* <Header />
       <h1 className="carousel-heading">Popular Destinations</h1>
       <Carousel />
       <h1 className="carousel-heading">Top Rated Hotels</h1>
@@ -15,9 +16,11 @@ function App() {
         <Carousel />
       </div>
 
-      <Footer />
+      <Footer /> */}
+      <SearchPage/>
     </div>
   );
 }
 
 export default App;
+
