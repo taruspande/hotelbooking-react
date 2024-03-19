@@ -51,9 +51,7 @@ const FullCard = () => {
       <div className="hotelCardText">
         <div className="hotelCardName">
           
-        {hotelNames.map((name, index) => (
-        <h6 key={index}>{name}</h6>
-      ))}
+        Hotel ABC
         </div>
         <div className="hotelCardLoc">Location</div>
         <div className="hotelCardhigh">
