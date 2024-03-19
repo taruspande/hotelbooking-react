@@ -56,12 +56,14 @@
   font-size: 35px;
   padding-top: 10px;
   font-weight: 500;
+  line-height: 38px;
 }
 .hotelCardLoc {
+  padding-top: 9px;
   font-size: 23px;
 }
 .hotelCardhigh {
-  padding-top: 20px;
+  padding-top: 10px;
   font-size: 18px;
 }
 .hotelCardStars {
