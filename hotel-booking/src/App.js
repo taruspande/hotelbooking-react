@@ -3,6 +3,7 @@ import "./App.css";
 import Carousel from "./Components/Carousel/Carousel.jsx";
 import { Header } from "./Components/Header";
 import Footer from "./Components/Footer/Footer.jsx";
+import { Hotel } from "./Components/Hotel.jsx";
 
 function App() {
   return (
@@ -14,7 +15,6 @@ function App() {
       <div style={{ marginBottom: 100 }}>
         <Carousel />
       </div>
-
       <Footer />
     </div>
   );
