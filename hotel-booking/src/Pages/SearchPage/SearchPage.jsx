@@ -18,7 +18,7 @@ const SearchPage = () => {
         <div className="mainBody">
           <SortBar />
           <FullCard />
-          <FullCard />
+          {/* <FullCard /> */}
         </div>
       </div>
     </>

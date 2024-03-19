@@ -1,7 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./FullCard.css";
+import axios from "axios";
 
 const FullCard = () => {
+  const [hotelNames, setHotelNames] = useState([]);
+
+  useEffect(() => {
+    const fetchHotelNames = async () => {
+      try {
+        const response = await axios.get('http://127.0.0.1:8000/api/hotels/list/');
+        const names = response.data.map(hotel => hotel.name);
+        setHotelNames(names);
+      } catch (error) {
+        console.error('Failed to fetch hotel names:', error);
+      }
+    };
+
+    fetchHotelNames();
+  }, []);
+
   return (
     <div className="fullHotelCard">
       <div className="fullHotelImg">
@@ -32,7 +49,12 @@ const FullCard = () => {
         </span>
       </div>
       <div className="hotelCardText">
-        <div className="hotelCardName">Hotel ABC</div>
+        <div className="hotelCardName">
+          
+        {hotelNames.map((name, index) => (
+        <h6 key={index}>{name}</h6>
+      ))}
+        </div>
         <div className="hotelCardLoc">Location</div>
         <div className="hotelCardhigh">
           Highlights

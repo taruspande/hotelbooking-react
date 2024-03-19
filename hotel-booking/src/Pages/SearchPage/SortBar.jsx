@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./SortBar.css";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import axios from "axios";
 
 const SortBar = () => {
   const [searchHotel, setSearchHotel] = useState("");
