@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+  color: #5f230f;
+}
+.filterSidebar h3 {
+  color: #5f230f;
+  font-size: 2.25em;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+.filterSidebar img {
+  border-radius: 15px;
+  box-shadow: 1px 1px 1px #5f230f;
+  border: 1px solid #5f230f;
+  height: 170px;
+}
+.sideBarcompo {
+  color: #5f230f;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.starBar,
+.userBar,
+.propertyBar {
+  margin-top: 7px;
+  margin-bottom: 5px;
+}
+
+.filterSidebar {
+  width: 335px;
+  padding: 20px;
+  box-sizing: border-box;
+  border-right: 1px solid white;
+  box-shadow: 10px 0px 10px 0px rgba(0, 0, 0, 0.25);
+  overflow-y:auto ;
+}
+.arrow {
+  font-size: 25px;
+  padding-right: 10px;
+}
+
+.filterSidebar input[type="number"] {
+  width: 80px;
+  padding: 5px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  border-radius: 15px;
+  padding-left: 20px;
+  margin: 10px;
+  margin-left: 0;
+  text-align: center;
+  font-size: 17px;
+}
+
+.starBar span,
+.userBar span,
+.propertyBar span {
+  padding-left: 10px;
+}
+#countStar {
+  text-decoration: none;
+  color: yellow;
+}
+.starRating {
+  padding-right: 10px;
+  margin-right: 10px;
+  font-size: 18px;
+}
+.starRating label input {
+  padding-right: 10px;
+}
+.filterSidebar input[type="checkbox"] {
+  transform: scale(1.5);
+  border: 2px solid black;
+}
+
+.filterSidebar button {
+  /* width: 20%; */
+  width: 35px;
+  height: 35px;
+  /* padding: 5px; */
+  margin-left: 20px;
+  background-color: #5f230f;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+/* .filterSidebar button:hover {
+  background-color: white;
+  color: #5f230f;
+} */
+#submitArrow {
+  color: white;
+  font-size: 20px;
+}

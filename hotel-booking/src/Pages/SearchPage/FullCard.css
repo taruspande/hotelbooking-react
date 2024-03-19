@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.fullHotelCard {
+  display: flex;
+  align-items: center;
+  width: 1000px;
+  margin-top: 20px;
+  background-color: white;
+  margin-left: 20px;
+  height: 250px;
+  border: 3px solid #5f230f;
+  border-radius: 10px;
+}
+.fullHotelImg {
+  width: 320px;
+  margin-left: 10px;
+  box-sizing: border-box;
+}
+.mainHotelImg img {
+  height: 170px;
+  width: 300px;
+  margin-top: 5px;
+}
+.secHotelImg img {
+  margin-top: 5px;
+  height: 55px;
+  width: 90px;
+  padding-right: 15px;
+}
+#viewmore {
+  position: relative;
+}
+#viewmore img {
+  filter: brightness(20%);
+}
+#viewmore .textOnImage {
+  position: absolute;
+  top: -60%;
+  left: 48%;
+  transform: translate(-50%, -50%);
+}
+.textOnImage {
+  color: white;
+  font-size: 20px;
+}
+.hotelCardText {
+  color: #5f230f;
+  box-sizing: border-box;
+  width: 290px;
+  height: 100%;
+}
+.hotelCardName {
+  font-size: 35px;
+  padding-top: 10px;
+  font-weight: 500;
+  line-height: 38px;
+}
+.hotelCardLoc {
+  padding-top: 9px;
+  font-size: 23px;
+}
+.hotelCardhigh {
+  padding-top: 10px;
+  font-size: 18px;
+}
+.hotelCardStars {
+  width: 170px;
+  box-sizing: border-box;
+  height: 100%;
+}
+.noStars {
+  padding-top: 20px;
+  text-decoration: none;
+  color: #5f230f;
+  font-size: 20px;
+  padding-left: 5px;
+}
+.halfVerticalBar {
+  width: 2px;
+  height: 90%;
+  background-color: #5f230f;
+  margin: auto 0;
+}
+.hotelCardBook {
+  width: 200px;
+  box-sizing: border-box;
+  height: 100%;
+  padding-left: 20px;
+  padding-top: 15px;
+  color: #5f230f;
+}
+.hotelCardRating {
+  font-size: 23px;
+  font-weight: 500;
+}
+.hotelCardRev {
+  font-size: 22px;
+  padding-top: 10px;
+}
+.hotelCardRev span {
+  font-size: 25px;
+  font-weight: 500;
+}
+.hotelCardRevNo {
+  font-size: 15px;
+}
+.hotelCardPrice {
+  font-size: 25px;
+  font-weight: 700;
+  padding-left: 80px;
+  padding-top: 30px;
+}
+.hotelCardBtn Button {
+  font-size: 21px;
+  color: #fff;
+  background-color: #5f230f;
+  padding: 8px 13px;
+  border: 2px solid white;
+  border-radius: 15px;
+  text-decoration: none;
+  box-shadow: 0 0 10px 2px black;
+  width: 100%;
+  cursor: pointer;
+}
+.hotelCardBtn {
+  width: 150px;
+  padding-left: 10px;
+  margin-top: 18px;
+}
