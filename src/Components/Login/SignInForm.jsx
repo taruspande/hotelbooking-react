@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { useCookies } from "react-cookie";
-import axios from "../axios";
+import axios from "../../axios";
 import "./SignInUp.css";
 
 function SignInForm() {
@@ -20,9 +19,9 @@ function SignInForm() {
       .post("api/user/login/refresh/", { refresh: cookies.refresh_token })
       .then((res) => {
         if (res.data.status === 200) {
-          access_expire = new Date();
+          let access_expire = new Date();
           access_expire.setTime(access_expire.getTime() + 300000);
-          refresh_expire = new Date();
+          let refresh_expire = new Date();
           refresh_expire.setTime(refresh_expire.getTime() + 1296000000);
           setCookie("access_token", res.data.access, {
             path: "/",
@@ -57,9 +56,9 @@ function SignInForm() {
       .post("api/user/login/", { username: email, password: password })
       .then((res) => {
         if (res.data.status === 200) {
-          access_expire = new Date();
+          let access_expire = new Date();
           access_expire.setTime(access_expire.getTime() + 5 * 60 * 1000);
-          refresh_expire = new Date();
+          let refresh_expire = new Date();
           refresh_expire.setTime(
             refresh_expire.getTime() + 15 * 24 * 60 * 60 * 1000
           );
@@ -80,44 +79,83 @@ function SignInForm() {
   }
 
   return (
-    <div className="formCenter">
-      <form className="formFields" onSubmit={this.handleSubmit}>
-        <div className="formField">
-          <input
-            type="email"
-            id="email"
-            className="formFieldInput"
-            placeholder="Enter Email"
-            name="email"
-            value={email}
-            onChange={handleChange}
-          />
-        </div>
+    <div className="App">
+      <div className="App1">
+        <div className="appAside" />
+        <div className="appForm">
+          {/* <div className="pageSwitcher">
+              <a href="/signin"
+                activeClassName="pageSwitcherItem-active"
+                className="pageSwitcherItem"
+              >
+                Sign In
+              </a>
+              <a href="/signup"
+                activeClassName="pageSwitcherItem-active"
+                className="pageSwitcherItem"
+              >
+                Sign Up
+              </a>
+            </div> */}
 
-        <div className="formField">
-          {/* <label className="formFieldLabel" htmlFor="password">
+          <div className="formTitle">
+            <a
+              href="/signin"
+              activeClassName="formTitleLink-active"
+              className="formTitleLink"
+            >
+              Sign In
+            </a>{" "}
+            |{" "}
+            <a
+              href="/signup"
+              activeClassName="formTitleLink-active"
+              className="formTitleLink"
+            >
+              Sign Up
+            </a>
+          </div>
+          <div className="formCenter">
+            <form className="formFields" onSubmit={handleSubmit}>
+              <div className="formField">
+                <input
+                  type="email"
+                  id="email"
+                  className="formFieldInput"
+                  placeholder="Enter Email"
+                  name="email"
+                  value={email}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="formField">
+                {/* <label className="formFieldLabel" htmlFor="password">
               Password
             </label> */}
-          <input
-            type="password"
-            id="password"
-            className="formFieldInput"
-            placeholder="Enter your password"
-            name="password"
-            value={password}
-            onChange={handleChange}
-          />
-        </div>
+                <input
+                  type="password"
+                  id="password"
+                  className="formFieldInput"
+                  placeholder="Enter your password"
+                  name="password"
+                  value={password}
+                  onChange={handleChange}
+                />
+              </div>
 
-        <div className="formField">
-          <button className="formFieldButton" onClick={handleSubmit}>
-            SIGN IN
-          </button>{" "}
-          <Link to="/signup" className="formFieldLink">
-            Create an account
-          </Link>
+              <div className="formField">
+                <button className="formFieldButton" onClick={handleSubmit}>
+                  SIGN IN
+                </button>{" "}
+                <a href="/signup" className="formFieldLink">
+                  Create an account
+                </a>
+              </div>
+            </form>
+          </div>
         </div>
-      </form>
+      </div>
     </div>
   );
 }

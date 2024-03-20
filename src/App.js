@@ -1,10 +1,14 @@
-import React from "react";
+import { React, lazy } from "react";
+import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
-import SearchPage from "./Pages/SearchPage/SearchPage.jsx"
-import Carousel from "./Components/Carousel/Carousel.jsx";
-import { Header } from "./Components/Header";
-import Footer from "./Components/Footer/Footer.jsx";
-import { Hotel } from "./Components/Hotel.jsx";
+// import Carousel from "./Components/Carousel/Carousel.jsx";
+// import { Header } from "./Components/Header";
+// import Footer from "./Components/Footer/Footer.jsx";
+// import { Hotel } from "./Components/Hotel.jsx";
+
+const SearchPage = lazy(() => import("./Pages/SearchPage/SearchPage.jsx"));
+const SignInForm = lazy(() => import("./Components/Login/SignInForm.jsx"));
+const SignUpForm = lazy(() => import("./Components/Login/SignUpForm.jsx"));
 
 function App() {
   return (
@@ -17,10 +21,14 @@ function App() {
         <Carousel />
       </div>
       <Footer /> */}
-      <SearchPage/>
+      <Routes>
+        <Route path="/" element={<SearchPage />} />
+        <Route path="/signin" element={<SignInForm />} />
+        <Route path="/signup" element={<SignUpForm />} />
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
     </div>
   );
 }
 
 export default App;
-

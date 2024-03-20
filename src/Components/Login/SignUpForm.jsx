@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import axios from "../axios";
+import axios from "../../axios";
 import "./SignInUp.css";
 
 function SignUpForm() {
@@ -35,6 +34,8 @@ function SignUpForm() {
       case "hasAgreed":
         setHasAgreed(value);
         break;
+      default:
+        break;
     }
   }
 
@@ -54,9 +55,9 @@ function SignUpForm() {
       })
       .then((res) => {
         if (res.data.status === 201) {
-          window.location.href = "/sign-in";
+          window.location.href = "/signin";
         } else {
-          if (length(res.data.message) > 0) {
+          if (res.data.message.length > 0) {
             alert("A member with this email already exists");
             setEmail("");
           } else {
@@ -67,86 +68,125 @@ function SignUpForm() {
   }
 
   return (
-    <div className="formCenter">
-      <form onSubmit={handleSubmit} className="formFields">
-        <div className="formField1">
-          <input
-            type="text"
-            id="firstname"
-            className="formFieldInput"
-            placeholder="First name"
-            name="firstname"
-            value={firstname}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="formField1">
-          <input
-            type="text"
-            id="lastname"
-            className="formFieldInput"
-            placeholder="Last name"
-            name="lastname"
-            value={lastname}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="formField1">
-          <input
-            type="email"
-            id="email"
-            className="formFieldInput"
-            placeholder="Enter Email"
-            name="email"
-            value={email}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="formField1">
-          <input
-            type="password"
-            id="password"
-            className="formFieldInput"
-            placeholder="Enter Password"
-            name="password"
-            value={password}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="formField1">
-          <input
-            type="password"
-            id="password"
-            className="formFieldInput"
-            placeholder="Confirm Password"
-            name="password2"
-            value={password2}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="formField1">
-          <label className="formFieldCheckboxLabel">
-            <input
-              className="formFieldCheckbox"
-              type="checkbox"
-              name="hasAgreed"
-              value={hasAgreed}
-              onChange={handleChange}
-            />{" "}
-            I agree all statements in{" "}
-            <a href="null" className="formFieldTermsLink">
-              terms of service
-            </a>
-          </label>
-        </div>
+    <div className="App">
+      <div className="App1">
+        <div className="appAside" />
+        <div className="appForm">
+          {/* <div className="pageSwitcher">
+              <a href="/signin"
+                activeClassName="pageSwitcherItem-active"
+                className="pageSwitcherItem"
+              >
+                Sign In
+              </a>
+              <a href="/signup"
+                activeClassName="pageSwitcherItem-active"
+                className="pageSwitcherItem"
+              >
+                Sign Up
+              </a>
+            </div> */}
 
-        <div className="formField1">
-          <button className="formFieldButton">SIGN UP</button>{" "}
-          <Link to="/signin" className="formFieldLink">
-            I'm already a member
-          </Link>
+          <div className="formTitle">
+            <a
+              href="/signin"
+              activeClassName="formTitleLink-active"
+              className="formTitleLink"
+            >
+              Sign In
+            </a>{" "}
+            |{" "}
+            <a
+              href="/signup"
+              activeClassName="formTitleLink-active"
+              className="formTitleLink"
+            >
+              Sign Up
+            </a>
+          </div>
+          <div className="formCenter">
+            <form onSubmit={handleSubmit} className="formFields">
+              <div className="formField1">
+                <input
+                  type="text"
+                  id="firstname"
+                  className="formFieldInput"
+                  placeholder="First name"
+                  name="firstname"
+                  value={firstname}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="formField1">
+                <input
+                  type="text"
+                  id="lastname"
+                  className="formFieldInput"
+                  placeholder="Last name"
+                  name="lastname"
+                  value={lastname}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="formField1">
+                <input
+                  type="email"
+                  id="email"
+                  className="formFieldInput"
+                  placeholder="Enter Email"
+                  name="email"
+                  value={email}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="formField1">
+                <input
+                  type="password"
+                  id="password"
+                  className="formFieldInput"
+                  placeholder="Enter Password"
+                  name="password"
+                  value={password}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="formField1">
+                <input
+                  type="password"
+                  id="password"
+                  className="formFieldInput"
+                  placeholder="Confirm Password"
+                  name="password2"
+                  value={password2}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="formField1">
+                <label className="formFieldCheckboxLabel">
+                  <input
+                    className="formFieldCheckbox"
+                    type="checkbox"
+                    name="hasAgreed"
+                    value={hasAgreed}
+                    onChange={handleChange}
+                  />{" "}
+                  I agree all statements in{" "}
+                  <a href="/tos" className="formFieldTermsLink">
+                    terms of service
+                  </a>
+                </label>
+              </div>
+
+              <div className="formField1">
+                <button className="formFieldButton">SIGN UP</button>{" "}
+                <a href="/signin" className="formFieldLink">
+                  I'm already a member
+                </a>
+              </div>
+            </form>
+          </div>
         </div>
-      </form>
+      </div>
     </div>
   );
 }
