@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import axios from "../axios";
+import "./SignInUp.css";
 
 function SignInForm() {
   const [email, setEmail] = useState("");
@@ -16,7 +17,7 @@ function SignInForm() {
   }
   if (cookies.refresh_token) {
     axios
-      .post("api/user/login/refresh", { refresh: cookies.refresh_token })
+      .post("api/user/login/refresh/", { refresh: cookies.refresh_token })
       .then((res) => {
         if (res.data.status === 200) {
           access_expire = new Date();
@@ -53,7 +54,7 @@ function SignInForm() {
     e.preventDefault();
 
     axios
-      .post("api/user/login", { username: email, password: password })
+      .post("api/user/login/", { username: email, password: password })
       .then((res) => {
         if (res.data.status === 200) {
           access_expire = new Date();
@@ -71,6 +72,9 @@ function SignInForm() {
             expires: refresh_expire,
           });
           window.location.href = "/";
+        }
+        if (res.data.status === 401) {
+          alert("Invalid username or password");
         }
       });
   }
@@ -108,7 +112,7 @@ function SignInForm() {
         <div className="formField">
           <button className="formFieldButton" onClick={handleSubmit}>
             SIGN IN
-          </button>
+          </button>{" "}
           <Link to="/signup" className="formFieldLink">
             Create an account
           </Link>
