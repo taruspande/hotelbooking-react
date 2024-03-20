@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./FullCard.css";
-import axios from "C:/Users/Ronak/Desktop/Coding/HotelBook/hotelbooking-react/hotel-booking/src/axios.jsx";
+import axios from "../../axios.jsx";
 
 const FullCard = () => {
   const [myData, setMyData] = useState([]);
