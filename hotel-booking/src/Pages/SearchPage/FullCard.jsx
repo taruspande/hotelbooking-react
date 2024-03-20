@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./FullCard.css";
-import axios from "C:/Users/Ronak/Desktop/Coding/HotelBook/hotelbooking-react/hotel-booking/src/axios.jsx";
-
+import axios from '../../../src/axios';
 const FullCard = () => {
   const [myData, setMyData] = useState([]);
   const [isError, setIsError] = useState("");
@@ -24,7 +23,28 @@ const FullCard = () => {
       {isError !== "" && <h2>{isError}</h2>}
 
       {myData.map((post) => {
-        const { name, hotel_id, city, stars,average_price } = post;
+        const {
+          name,
+          hotel_id,
+          city,
+          stars,
+          average_price,
+          pool,
+          spa,
+          gym,
+          restaurant,
+          laundry,
+        } = post;
+        const amenities = [
+          { name: "Pool", value: pool },
+          { name: "Spa", value: spa },
+          { name: "Gym", value: gym },
+          { name: "Restaurant", value: restaurant },
+          { name: "Laundry", value: laundry },
+        ];
+
+        const trueAmenities = amenities.filter((amenity) => amenity.value);
+        const trueCount = trueAmenities.length;
         return (
           <div className="fullHotelCard" key={hotel_id}>
             <div className="fullHotelImg">
@@ -59,9 +79,10 @@ const FullCard = () => {
               <div className="hotelCardLoc">{city}</div>
               <div className="hotelCardhigh">
                 Highlights
-                <li>ABC</li>
-                <li>ABC</li>
-                <li>ABC</li>
+                {trueAmenities.slice(0, 2).map((amenity, index) => (
+                  <li key={index}>{amenity.name}</li>
+                ))}
+                {trueCount > 2 && <li>And many more...</li>}
               </div>
             </div>
             <div className="hotelCardStars">
@@ -73,7 +94,8 @@ const FullCard = () => {
             <div className="hotelCardBook">
               <div className="hotelCardRating">Rating</div>
               <div className="hotelCardRev">
-                <span>{stars}</span> Very Good
+                <span>{stars}</span>{" "}
+                {stars > 4 ? "Very Good" : stars < 2 ? "Average" : "Good"}
               </div>
               <div className="hotelCardRevNo">(334 Rating)</div>
               <div className="hotelCardPrice">{average_price}</div>

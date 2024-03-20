@@ -1,5 +1,5 @@
 import React from "react";
-import "C:/Users/Ronak/Desktop/Coding/HotelBook/hotelbooking-react/hotel-booking/src/Pages/SearchPage/SearchPageHeader.css";
+import "./SearchPageHeader.css";
 import { useState } from "react";
 
 function MyComponent({ placeholder }) {
