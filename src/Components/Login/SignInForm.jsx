@@ -7,34 +7,30 @@ function SignInForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [cookies, setCookie, removeCookie] = useCookies([
-    "access_token",
-    "refresh_token",
-  ]);
-  if (cookies.access_token) {
+  const [cookies, setCookie, removeCookie] = useCookies(["access", "refresh"]);
+  if (cookies.access) {
     window.location.href = "/";
-  }
-  if (cookies.refresh_token) {
+  } else if (cookies.refresh) {
     axios
-      .post("api/user/login/refresh/", { refresh: cookies.refresh_token })
+      .post("api/user/login/refresh/", { refresh: cookies.refresh })
       .then((res) => {
-        if (res.data.status === 200) {
-          let access_expire = new Date();
-          access_expire.setTime(access_expire.getTime() + 300000);
-          let refresh_expire = new Date();
-          refresh_expire.setTime(refresh_expire.getTime() + 1296000000);
-          setCookie("access_token", res.data.access, {
-            path: "/",
-            expires: access_expire,
-          });
-          setCookie("refresh_token", res.data.refresh, {
-            path: "/",
-            expires: refresh_expire,
-          });
-          window.location.href = "/";
-        } else {
-          removeCookie("refresh_token");
-        }
+        let access_expire = new Date();
+        access_expire.setTime(access_expire.getTime() + 300000);
+        let refresh_expire = new Date();
+        refresh_expire.setTime(refresh_expire.getTime() + 1296000000);
+        setCookie("refresh", res.data.refresh, {
+          path: "/",
+          expires: refresh_expire,
+          sameSite: "strict",
+        });
+        setCookie("access", res.data.access, {
+          path: "/",
+          expires: access_expire,
+        });
+        window.location.href = "/";
+      })
+      .catch((res) => {
+        removeCookie("refresh");
       });
   }
 
@@ -55,24 +51,26 @@ function SignInForm() {
     axios
       .post("api/user/login/", { username: email, password: password })
       .then((res) => {
-        if (res.data.status === 200) {
-          let access_expire = new Date();
-          access_expire.setTime(access_expire.getTime() + 5 * 60 * 1000);
-          let refresh_expire = new Date();
-          refresh_expire.setTime(
-            refresh_expire.getTime() + 15 * 24 * 60 * 60 * 1000
-          );
-          setCookie("access_token", res.data.access_token, {
-            path: "/",
-            expires: access_expire,
-          });
-          setCookie("refresh_token", res.data.refresh_token, {
-            path: "/",
-            expires: refresh_expire,
-          });
-          window.location.href = "/";
-        }
-        if (res.data.status === 401) {
+        let access_expire = new Date();
+        access_expire.setTime(access_expire.getTime() + 5 * 60 * 1000);
+        let refresh_expire = new Date();
+        refresh_expire.setTime(
+          refresh_expire.getTime() + 15 * 24 * 60 * 60 * 1000
+        );
+        setCookie("refresh", res.data.refresh, {
+          path: "/",
+          expires: refresh_expire,
+          sameSite: "strict",
+        });
+        setCookie("access", res.data.access, {
+          path: "/",
+          expires: access_expire,
+          sameSite: "strict",
+        });
+        window.location.href = "/";
+      })
+      .catch((res) => {
+        if (res.response.status === 401) {
           alert("Invalid username or password");
         }
       });

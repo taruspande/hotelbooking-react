@@ -54,15 +54,14 @@ function SignUpForm() {
         lastname: lastname,
       })
       .then((res) => {
-        if (res.data.status === 201) {
-          window.location.href = "/signin";
+        window.location.href = "/signin";
+      })
+      .catch((res) => {
+        if (res.response.data.message.length > 0) {
+          alert("A member with this email already exists");
+          setEmail("");
         } else {
-          if (res.data.message.length > 0) {
-            alert("A member with this email already exists");
-            setEmail("");
-          } else {
-            alert("Please fill all the fields");
-          }
+          alert("Please fill all the fields");
         }
       });
   }
@@ -72,21 +71,6 @@ function SignUpForm() {
       <div className="App1">
         <div className="appAside" />
         <div className="appForm">
-          {/* <div className="pageSwitcher">
-              <a href="/signin"
-                activeClassName="pageSwitcherItem-active"
-                className="pageSwitcherItem"
-              >
-                Sign In
-              </a>
-              <a href="/signup"
-                activeClassName="pageSwitcherItem-active"
-                className="pageSwitcherItem"
-              >
-                Sign Up
-              </a>
-            </div> */}
-
           <div className="formTitle">
             <a
               href="/signin"
