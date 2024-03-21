@@ -8,11 +8,10 @@ function SignUpForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
-  const [hasAgreed, setHasAgreed] = useState(false);
 
   function handleChange(e) {
     let target = e.target;
-    let value = target.type === "checkbox" ? target.checked : target.value;
+    let value = target.value;
     let name = target.name;
 
     switch (name) {
@@ -30,9 +29,6 @@ function SignUpForm() {
         break;
       case "password2":
         setPassword2(value);
-        break;
-      case "hasAgreed":
-        setHasAgreed(value);
         break;
       default:
         break;
@@ -95,7 +91,7 @@ function SignUpForm() {
                   type="text"
                   id="firstname"
                   className="formFieldInput"
-                  placeholder="First name"
+                  placeholder="First Name"
                   name="firstname"
                   value={firstname}
                   onChange={handleChange}
@@ -106,7 +102,7 @@ function SignUpForm() {
                   type="text"
                   id="lastname"
                   className="formFieldInput"
-                  placeholder="Last name"
+                  placeholder="Last Name"
                   name="lastname"
                   value={lastname}
                   onChange={handleChange}
@@ -117,7 +113,7 @@ function SignUpForm() {
                   type="email"
                   id="email"
                   className="formFieldInput"
-                  placeholder="Enter Email"
+                  placeholder="Email"
                   name="email"
                   value={email}
                   onChange={handleChange}
@@ -128,7 +124,7 @@ function SignUpForm() {
                   type="password"
                   id="password"
                   className="formFieldInput"
-                  placeholder="Enter Password"
+                  placeholder="Password"
                   name="password"
                   value={password}
                   onChange={handleChange}
@@ -145,28 +141,13 @@ function SignUpForm() {
                   onChange={handleChange}
                 />
               </div>
-              <div className="formField1">
-                <label className="formFieldCheckboxLabel">
-                  <input
-                    className="formFieldCheckbox"
-                    type="checkbox"
-                    name="hasAgreed"
-                    value={hasAgreed}
-                    onChange={handleChange}
-                  />{" "}
-                  I agree all statements in{" "}
-                  <a href="/tos" className="formFieldTermsLink">
-                    terms of service
-                  </a>
-                </label>
-              </div>
 
               <div className="formField1">
-                <button className="formFieldButton">SIGN UP</button>{" "}
-                <a href="/signin" className="formFieldLink">
-                  I'm already a member
-                </a>
+                <button className="formFieldButton">SIGN UP</button>
               </div>
+              <a href="/signin" className="formFieldLink">
+                Already have an account? SIGN IN
+              </a>
             </form>
           </div>
         </div>
