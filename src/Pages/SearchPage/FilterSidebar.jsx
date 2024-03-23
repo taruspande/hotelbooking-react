@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./FilterSidebar.css";
 
-const FilterSidebar = () => {
+const FilterSidebar = ({ setFilters }) => {
   const [rating, setRating] = useState({
     1: false,
     2: false,
@@ -15,10 +15,12 @@ const FilterSidebar = () => {
     max: "",
   });
 
-  const [propertyType, setPropertyType] = useState({
-    villa: false,
-    hotel: false,
-    resort: false,
+  const [amenityType, setAmenityType] = useState({
+    pool: false,
+    spa: false,
+    gym: false,
+    restaurant: false,
+    laundry: false,
   });
   const [userRating, setUserRating] = useState({
     Excellent: false,
@@ -28,25 +30,37 @@ const FilterSidebar = () => {
 
   const handleRatingChange = (event) => {
     setRating({ ...rating, [event.target.name]: event.target.checked });
+    updateFilters();
   };
   const handleuserRatingChange = (event) => {
     setUserRating({ ...userRating, [event.target.name]: event.target.checked });
+    updateFilters();
   };
 
   const handlePriceChange = (event) => {
     setPrice({ ...price, [event.target.name]: event.target.value });
+    updateFilters();
   };
 
-  const handlePropertyTypeChange = (event) => {
-    setPropertyType({
-      ...propertyType,
+  const handleAmenityTypeChange = (event) => {
+    setAmenityType({
+      ...amenityType,
       [event.target.name]: event.target.checked,
     });
+    updateFilters();
   };
   const handlePriceSubmit = (event) => {
     event.preventDefault();
-    // Here you can handle the price range submission
     console.log(price);
+    updateFilters();
+  };
+  const updateFilters = () => {
+    setFilters({
+      rating,
+      userRating,
+      price,
+      amenityType,
+    });
   };
 
   return (
@@ -115,7 +129,7 @@ const FilterSidebar = () => {
               <input
                 type="checkbox"
                 name={user}
-                checked={rating[user]}
+                checked={userRating[user]}
                 onChange={handleuserRatingChange}
               />
               <span>{user} +</span>
@@ -123,23 +137,22 @@ const FilterSidebar = () => {
           </div>
         ))}
       </div>
-      <label className="sideBarcompo">Property Type</label>
+      <label className="sideBarcompo">Amenities</label>
       <div className="propertyBar">
-        {["villas", "hotels", "resorts"].map((type) => (
+        {["Pool", "Spa", "Gym", "Restaurant", "Laundry"].map((type) => (
           <div key={type}>
             <label>
               <input
                 type="checkbox"
                 name={type}
-                checked={propertyType[type]}
-                onChange={handlePropertyTypeChange}
+                checked={amenityType[type]}
+                onChange={handleAmenityTypeChange}
               />
               <span> {type.charAt(0).toUpperCase() + type.slice(1)}</span>
             </label>
           </div>
         ))}
       </div>
-      {/* Rest of the code */}
     </div>
   );
 };
