@@ -36,10 +36,12 @@ export const Header = () => {
   const [destination, setDestination] = useState('');
   
 
-  const handleSearchClick = () => {
+  const handleSearchClick = (event) => {
+    event.preventDefault();
     // Redirect to the search page with the search parameters in the URL
     navigate(`/search-page?destination=${destination}`);
   };
+
 
 
   return (
@@ -61,14 +63,16 @@ export const Header = () => {
       <div >
       <div className="SortBar">
         <div className="SortBar2">
-          <form>
+          <form >
           <input type='text' value={destination} onChange={(e) => setDestination(e.target.value)} placeholder='Destination' />
-
+          
           </form>
+          
         </div>
         <button type="submit" className="submitBtn" onClick={handleSearchClick} >
-          <FontAwesomeIcon icon={faSearch} />
-        </button>
+            <FontAwesomeIcon icon={faSearch} />
+          </button>
+        
       </div>
         
       </div>

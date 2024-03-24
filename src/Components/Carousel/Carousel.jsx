@@ -39,11 +39,11 @@ SamplePrevArrow.propTypes = {
 
 const Carousel = ({ data }) => {
   const defaultData = [
-    { id: 1, title: "Default Hotel 1", image: "default_image_url_1", link: "/" },
-    { id: 2, title: "Default Hotel 2", image: "default_image_url_2", link: "/" },
-    { id: 3, title: "Default Hotel 3", image: "default_image_url_2", link: "/" },
-    { id: 4, title: "Default Hotel 4", image: "default_image_url_2", link: "/" },
-    { id: 5, title: "Default Hotel 5", image: "default_image_url_2", link: "/" },
+    { id: 1, name: "Default Hotel 1", image_url: "default_image_url_1", link: "/" },
+    { id: 2, name: "Default Hotel 2", image_url: "default_image_url_2", link: "/" },
+    { id: 3, name: "Default Hotel 3", image_url: "default_image_url_2", link: "/" },
+    { id: 4, name: "Default Hotel 4", image_url: "default_image_url_2", link: "/" },
+    { id: 5, name: "Default Hotel 5", image_url: "default_image_url_2", link: "/" },
     // Add more default items as needed
   ];
 

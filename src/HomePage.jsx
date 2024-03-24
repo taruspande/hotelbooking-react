@@ -8,6 +8,7 @@ import Footer from "./Components/Footer/Footer.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {Hotel} from "./Components/Hotel.jsx"; // Import Hotel component
 import SearchPage from "./Pages/SearchPage/SearchPage.jsx";
+import axios from "./axios.jsx"
 
 function HomePage() {
   const [topRatedHotels, setTopRatedHotels] = useState([]);
@@ -15,26 +16,39 @@ function HomePage() {
     // Fetch top rated hotels data from backend
     fetchTopRatedHotels();
   }, []);
+//   const fetchTopRatedHotels = async () => {
+//     try {
+//       const response = await fetch('api/hotels/list/?ordering=-stars');
+//       if (response.ok) {
+//         const data = await response.json();
+//         setTopRatedHotels(data);
+//       } else {
+//         console.error('Failed to fetch top rated hotels');
+//       }
+//     } catch (error) {
+//       console.error('Error:', error);
+//     }
+//   };
+
   const fetchTopRatedHotels = async () => {
     try {
-      const response = await fetch('http://your-backend-url/top-rated-hotels');
-      if (response.ok) {
-        const data = await response.json();
-        setTopRatedHotels(data);
-      } else {
-        console.error('Failed to fetch top rated hotels');
-      }
+      const res = await axios.get("api/hotels/list/");
+      setTopRatedHotels(res.data);
     } catch (error) {
-      console.error('Error:', error);
+      setIsError(error.message);
     }
   };
+  const [isError, setIsError] = useState("");
+
+  useEffect(() => {
+    fetchTopRatedHotels();
+  }, []);
 
 
   return (
     <div className={styles.className}>
       {/* <Hotel/> */}
 
-    <BrowserRouter>
       <div>
         <Routes>
           <Route
@@ -42,7 +56,6 @@ function HomePage() {
             element={
               <>
                 <Header />
-
                 <h1 className="carousel-heading">Popular Destinations</h1>
                 <Carousel />
                 <h1 className="carousel-heading">Top Rated Hotels</h1>
@@ -57,7 +70,6 @@ function HomePage() {
 
         </Routes>
       </div>
-    </BrowserRouter>  
     </div>
   );
 }

@@ -2,13 +2,13 @@ import propTypes from "prop-types";
 import "./HotelCard.css";
 import pho from "./download.jpeg";
 
-function Card(props) {
+function Card(item) {
   return (
     <div className="fullCard">
       <div className="card">
-        <a href={props.link}>
+        <a href={item.link}>
           <div className="cardImg">
-            <h1 className="cardTitle">{props.title}</h1>
+            <h1 className="cardTitle">{item.name}</h1>
           </div>
         </a>
       </div>
@@ -17,14 +17,14 @@ function Card(props) {
 }
 
 Card.propTypes = {
-  title: propTypes.string,
-  image: propTypes.any,
-  link: propTypes.any,
+  name: propTypes.string,
+  image_url: propTypes.any,
+  // link: propTypes.any,
 };
 Card.defaultProps = {
-  title: "LOCATION",
-  image: pho,
-  link: "./",
+  name: "LOCATION",
+  image_url: pho,
+  // link: "./",
 };
 
 export default Card;

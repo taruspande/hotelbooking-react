@@ -5,10 +5,11 @@ import "./App.css";
 // import { Header } from "./Components/Header";
 // import Footer from "./Components/Footer/Footer.jsx";
 // import { Hotel } from "./Components/Hotel.jsx";
-
+const HomePage = lazy(() => import("./HomePage.jsx"));
 const SearchPage = lazy(() => import("./Pages/SearchPage/SearchPage.jsx"));
 const SignInForm = lazy(() => import("./Components/Login/SignInForm.jsx"));
 const SignUpForm = lazy(() => import("./Components/Login/SignUpForm.jsx"));
+
 
 function App() {
   return (
@@ -22,7 +23,9 @@ function App() {
       </div>
       <Footer /> */}
       <Routes>
-        <Route path="/" element={<SearchPage />} />
+
+        <Route path="*" element={<HomePage />} />
+        {/* <Route path="/" element={<SearchPage />} /> */}
         <Route path="/signin" element={<SignInForm />} />
         <Route path="/signup" element={<SignUpForm />} />
         <Route path="*" element={<Navigate to="/" />} />
