@@ -12,8 +12,10 @@ const FullCard = ({
   gym,
   restaurant,
   laundry,
+  free_wifi,
 }) => {
   const amenities = [
+      {name:"Free Wifi", value:free_wifi},
     { name: "Pool", value: pool },
     { name: "Spa", value: spa },
     { name: "Gym", value: gym },
@@ -77,7 +79,7 @@ const FullCard = ({
                   {stars > 4 ? "Excellent" : stars < 3 ? "Good" : "Very Good"}
                 </div>
                 <div className="hotelCardRevNo">(334 Rating)</div>
-                <div className="hotelCardPrice">{average_price}</div>
+                <div className="hotelCardPrice">₹{average_price}</div>
                 <div className="hotelCardBtn">
                   <button type="Submit">Book Now</button>
                 </div>

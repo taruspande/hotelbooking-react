@@ -1,7 +1,7 @@
 const Products = ({ result }) => {
     return (
       <>
-        <section>{result}</section>
+        <section className="data">{result}</section>
       </>
     );
   };
