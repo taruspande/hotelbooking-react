@@ -64,6 +64,8 @@ const FilterSidebar = ({ setFilters }) => {
   };
 
   return (
+    <div className="header-3">
+
     <div className="filterSidebar">
       <div>
         <img
@@ -153,6 +155,7 @@ const FilterSidebar = ({ setFilters }) => {
           </div>
         ))}
       </div>
+    </div>
     </div>
   );
 };

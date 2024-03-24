@@ -25,6 +25,8 @@ function MyComponent({ placeholder }) {
 
 export const Header = () => {
   return (
+    <div className="header-2">
+
     <header>
       <nav>
         <ul>
@@ -45,5 +47,6 @@ export const Header = () => {
         </div>
       </div>
     </header>
+    </div>
   );
 };

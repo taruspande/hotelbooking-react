@@ -4,13 +4,19 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import HomePage from "./HomePage";
+import {Hotel} from "./Components/Hotel"
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <App />
-    </BrowserRouter>
+      {/* <HomePage/> */}
+      {/* { <Hotel /> } */}
+      </BrowserRouter>
+
   </React.StrictMode>
 );
 

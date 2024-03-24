@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
 
-header>nav>ul{
+.header-1>header>nav>ul{
     display: flex;
     list-style:none;
     justify-content: space-around;
@@ -11,29 +11,29 @@ header>nav>ul{
     padding:10px;
     color:white;
 }
-header>div{
+.header-1>header>div{
     text-align: end;
     color:white;
     margin-right: 1rem;
 }
-header>div>h1{
+.header-1>header>div>h1{
     font-size: 3.8em;
     font-weight: 100;
     font-family: "Cormorant Garamond", serif;
     margin:0.2em;
 }
-header>div>h1:nth-of-type(3n){
+.header-1>header>div>h1:nth-of-type(3n){
     margin-bottom: 1em;
 }
 
-/* header, html, body {
+/* .header-1>header, html, body {
     padding: 0;
 
     margin: 0 auto;
     } */
-header{
+.header-1>header{
     
-    height: 85vh;
+    height: 70vh;
     background-image: url('../assets/Paradero+Hotel.png');
     background-size:100% ;
     /* filter: grayscale(100%); */
@@ -79,7 +79,63 @@ header{
     border-radius: 1em;
     width:90%;
     background: #B4A39B;
-    text-align: center;
     padding:1em;
 }
 
+.header-1 .SortBar {
+text-align: center;
+
+display: flex;
+flex-wrap: wrap;
+background: #B4A39B;
+width: 980px;
+margin:auto;
+margin-top: 20vh;
+
+
+border: 3px solid #8a4c37;
+border-radius: 20px;
+height: 45px;
+}
+
+.header-1 .SortBar2 {
+font-size: 20px;
+/* padding-top: 8px; */
+padding-left: 20px;
+font-weight: bold;
+padding-right: 0px;
+text-align: center;
+border-right: 5px solid #8a4c37;
+width: 800px;
+}
+.header-1 .SortBar2 input,
+.header-1 .SortBar2 form {
+height: 100%;
+width: 100%;
+border: none;
+color: #8a4c37;
+background: #B4A39B;
+
+}
+.header-1 .SortBar2 input {
+border: none;
+font-size: 20px;
+text-decoration: none;
+outline: none;
+color: #8a4c37;
+font-weight: bold;
+}
+.header-1 .SortBar2 input::placeholder {
+color: #8a4c37;
+}
+.submitBtn {
+width: 55px;
+border: none;
+border-radius: 20px;
+background: transparent;
+cursor: pointer;
+font-size: 20px;
+padding-left: 65px;
+color: #8a4c37;
+
+}

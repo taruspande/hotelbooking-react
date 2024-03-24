@@ -1,6 +1,6 @@
 import React from "react";
-import "./Carousel.css";
-import Card from "../Cards/HotelCard.jsx";
+import "./CarouselHotel.css";
+import RoomCard from "../RoomCard.jsx";
 import Slider from "react-slick";
 import PropTypes from "prop-types";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
@@ -37,25 +37,14 @@ SamplePrevArrow.propTypes = {
   onClick: PropTypes.func,
 };
 
-const Carousel = ({ data }) => {
-  const defaultData = [
-    { id: 1, title: "Default Hotel 1", image: "default_image_url_1", link: "/" },
-    { id: 2, title: "Default Hotel 2", image: "default_image_url_2", link: "/" },
-    { id: 3, title: "Default Hotel 3", image: "default_image_url_2", link: "/" },
-    { id: 4, title: "Default Hotel 4", image: "default_image_url_2", link: "/" },
-    { id: 5, title: "Default Hotel 5", image: "default_image_url_2", link: "/" },
-    // Add more default items as needed
-  ];
-
-  const items = data && data.length > 0 ? data : defaultData;
-
+const Carousel = () => {
   const settings = {
     infinite: true,
     // speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2500,
+    autoplaySpeed: 100000000,
     cssEase: "ease",
     pauseOnHover: true,
     nextArrow: <SampleNextArrow />,
@@ -65,21 +54,17 @@ const Carousel = ({ data }) => {
   return (
     <div className="container">
       <Slider {...settings}>
-      {items.map((item) => (
-          <Card key={item.id} {...item} />
-        ))}
+        <RoomCard />
+        <RoomCard />
+        <RoomCard />
+        <RoomCard />
+        <RoomCard />
+        <RoomCard />
+        <RoomCard />
+        <RoomCard />
       </Slider>
     </div>
   );
-};
-
-Carousel.propTypes = {
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      // Add other prop types as needed
-    })
-  ).isRequired,
 };
 
 export default Carousel;

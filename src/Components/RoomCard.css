@@ -1,0 +1,26 @@
+.Room-card{
+    background: white;
+    width: 50%;
+    margin:auto;
+    border-radius: 3em;
+    display: flex;
+    color: #5F230F;
+    justify-content: space-between;
+}
+.Room-card>div>img{
+    transform: scale(0.93);
+}
+.Price-Book>button{
+    border-radius: 0.2em;
+    background-color: #5F230F;
+    color: white;
+    transform: scale(1.4);
+    margin-left: -4em;
+}
+.Price-Book{
+    margin-top: 17em;
+    transform: scale(1.3);
+}
+.Price-Book>h2{
+    margin-right: 2em;
+}

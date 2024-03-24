@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import "./Hotel.css";
 import mapImage from "../assets/map.png";
 import axios from "../axios.jsx";
+import Reviews from './Reviews';
+import Footer from "./Footer/Footer.jsx";
+import CarouselHotel from "./Carousel/CarouselHotel.jsx";
+
 
 export const Hotel = () => {
   const [myData, setMyData] = useState([]);
@@ -39,7 +43,7 @@ export const Hotel = () => {
               const trueAmenities = amenities.filter(amenity => amenity.value);
         return (
           < div key={hotel_id}>
-            <header>
+            <header className='hotel-header'>
               <nav className="top-bar">
                 <ul>
                   <li>About</li>
@@ -55,7 +59,7 @@ export const Hotel = () => {
                 </ul>
               </nav>
             </header>
-            <body>
+            <body className='hotel'>
               <div>
                 <h1 className="main">{name}</h1>
               </div>
@@ -86,14 +90,20 @@ export const Hotel = () => {
                 <div>
                   <h1>Highlights</h1>
                   {trueAmenities.map((amenity, index) => (
-    <li key={index}>{amenity.name}</li>
-  ))}
+                    <li key={index}>{amenity.name}</li>
+                  ))}
                 </div>
               </div>
 
               <div>
                 <h1>Rooms</h1>
-              </div>
+                <div className='Room-Card'>
+                    <CarouselHotel/>
+                    {/* <RoomCard/>
+                    <RoomCard/>
+                    <RoomCard/> */}
+                </div>
+            </div>
               <div>
                 <h1>Reviews</h1>
                 <div className="review-and-ratings">
@@ -104,6 +114,10 @@ export const Hotel = () => {
                     <h3>490 user reviews and 800 ratings</h3>
                   </div>
                 </div>
+                <Reviews/>
+                <Reviews/>
+                <Reviews/>
+                <Footer/>
               </div>
             </body>
           </div>

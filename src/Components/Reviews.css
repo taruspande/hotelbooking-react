@@ -1,0 +1,10 @@
+.Review-Card{
+    width: 80%;
+    margin: auto;
+    border-radius: 2em;
+    background-color: white;
+    color: #5F230F;
+    padding: 1em;
+    border-color: #5F230F;
+    border: 2px solid #5F230F;
+}
